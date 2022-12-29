@@ -1,24 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../data/patient_repository.dart';
-import '../../data/tips_repository.dart';
-import '../../domain/tip_model.dart';
+import '../../data/data_source/data_source.dart';
+import '../../data/repository/patient_repository.dart';
+import '../../domain/repository.dart';
+import '../../data/models/patient_model.dart';
 
-final userProvider = ChangeNotifierProvider<PatientNotifier>(
-      (ref) => PatientNotifier(tipRepository: FirebaseTipRepository()),
+
+final patientProvider = ChangeNotifierProvider<PatientNotifier>(
+      (ref) => PatientNotifier(repPatient: DataSourcePatients()),
 );
 
+
+
 class PatientNotifier extends ChangeNotifier {
-  UserRepository tipRepository;
-  PatientNotifier({required this.tipRepository});
+  BaseUsersRepository repPatient;
 
-  Future<List<UserModel>> loadList() async {
-    return await tipRepository.getAllTips();
+  PatientNotifier({required this.repPatient});
+
+  Future<List<PatientModel>> loadList() async {
+    return await repPatient.getData();
   }
 
- Future<void> User(String name, String country,int stars, bool inhome,bool inhospital,bool online ,String image  ) async {
-    await tipRepository.User(
-        userModel:UserModel(name,country,stars,inhome,inhospital,online,image));
+
+ Future<void> createPatient(String name,String country, int stars,bool inhome,bool inhospital,bool online,String image
+     ,List<dynamic> diseases,int groupSession,int IndividualSession,List<dynamic> lang,String subcountry  ) async {
+    await repPatient.createPatient(
+        userModel:PatientModel(name, country, stars, inhome, inhospital, online, image, diseases, groupSession, IndividualSession, lang, subcountry));
   }
+
+  final indexTipsProvider = StateProvider<int>((ref) {
+  return 0;});
 }

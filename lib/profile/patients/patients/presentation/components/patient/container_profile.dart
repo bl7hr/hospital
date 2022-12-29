@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../../../../core/resource/colors.dart';
-import '../../../../core/resource/fonts.dart';
-import '../../../../core/resource/sizes.dart';
-import '../widgets/text.dart';
+import '../../../../../../../../core/resource/colors.dart';
+import '../../../../../../../../core/resource/fonts.dart';
+import '../../../../../../../../core/resource/sizes.dart';
+import '../../../../../widgets/text.dart';
 
 
 
 
 
-Widget containerProfile(String firstLine,String lastLine){
+Widget containerProfilePateint(String firstLine,String lastLine){
   return Container(
     width: SizesGeneral.size153,
     height: SizesGeneral.size75,

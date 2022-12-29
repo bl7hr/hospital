@@ -12,10 +12,6 @@ import '../../widgets/chip.dart';
 import '../../widgets/text.dart';
 import '../../widgets/text_fild.dart';
 import '../service_providers/presentation/screens/service_providers.dart';
-bool homeChecked=false;
-bool onlineChecked=false;
-bool centerChecked=false;
-
 
 class ServiceProviderFillter extends StatefulWidget {
   const ServiceProviderFillter({Key? key}) : super(key: key);
@@ -26,15 +22,12 @@ class ServiceProviderFillter extends StatefulWidget {
 
 
 class _ServiceProviderFillterState extends State<ServiceProviderFillter> {
-  final CollectionReference _productce=FirebaseFirestore.instance.collection('401338054631');
-  final controller=TextEditingController();
-  Future createUser({required String name})async{
-    final docUser=FirebaseFirestore.instance.collection("aaa").doc("a");
-    final json={
-      'name':name,
-    };
-    await docUser.set(json);
-  }
+  bool homeChecked=false;
+  bool onlineChecked=false;
+  bool centerChecked=false;
+  bool gaziantap=false;
+  bool adana=false;
+  bool any = false;
   @override
   Widget build(BuildContext context) {
 
@@ -68,27 +61,28 @@ class _ServiceProviderFillterState extends State<ServiceProviderFillter> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               //text box for search
-                              textFild(controller: controller),IconButton(onPressed: (){
+                              textFild(),
 
-                                final name =controller.text;
-                                 createUser(name:name);
-
-
-
-
-                              }, icon: Icon(Icons.add)),
                               SizedBox(height: SizesGeneral.size10,),
                               Row(
                                 children: [
-                                  chip(
-                                      width: SizesGeneral.size100,
-                                      height: SizesGeneral.size40,
-                                      txt: StringsGeneral.gaziantep),
+                                  GestureDetector(
+                                          onTap:(){setState((){gaziantap=!gaziantap;adana=false;});},
+                                    child:  chip(
+                                      clr: gaziantap==true?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                        width: SizesGeneral.size100,
+                                        height: SizesGeneral.size40,
+                                        txt: StringsGeneral.gaziantep),
+                                  ),
                                   SizedBox(width: SizesGeneral.size5,),
-                                  chip(
-                                      width: SizesGeneral.size75,
-                                      height: SizesGeneral.size40,
-                                      txt: StringsGeneral.adana),
+                                  GestureDetector(
+                                    onTap:(){setState((){adana=!adana;gaziantap=false;});},
+                                    child: chip(
+                                      clr: adana==true?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                        width: SizesGeneral.size75,
+                                        height: SizesGeneral.size40,
+                                        txt: StringsGeneral.adana),
+                                  ),
                                 ],
                               )
                             ],
@@ -108,10 +102,16 @@ class _ServiceProviderFillterState extends State<ServiceProviderFillter> {
                               //text box for search
                               textFild(),
                               SizedBox(height: SizesGeneral.size8,),
-                              chip(
-                                  width: SizesGeneral.size75,
-                                  height: SizesGeneral.size40,
-                                  txt: StringsGeneral.any)
+                              GestureDetector(
+                                onTap: (){setState(() {
+                                  any=!any;
+                                });},
+                                child: chip(
+                                  clr: any==true?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                    width: SizesGeneral.size75,
+                                    height: SizesGeneral.size40,
+                                    txt: StringsGeneral.any),
+                              )
                             ],
                           ),
                         ],

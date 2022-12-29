@@ -1,13 +1,18 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:testfirebase/profile/widgets/text.dart';
 import '../../../../../core/resource/colors.dart';
 import '../../../../../core/resource/fonts.dart';
 import '../../../../../core/resource/icons.dart';
 import '../../../../../core/resource/sizes.dart';
 import '../../../../../core/resource/strings.dart';
+import '../patients/patients/presentation/controller/patientprovider.dart';
+import '../patients/patients/presentation/screens/patient.dart';
 
 
-Widget myListTile({required String imgeUrl,required String fullName,required String country,
+Widget myListTile({required String imgeUrl,required String fullName,required String country,required int stars,
   required bool firstIcon,required bool secondIcon,required bool thirdIcon }) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,11 +47,11 @@ Widget myListTile({required String imgeUrl,required String fullName,required Str
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(IconGeneral.star,size: SizesGeneral.size10,color: ColorGeneral.buttonBlue,),
-                Icon(IconGeneral.star,size: SizesGeneral.size10,color: ColorGeneral.buttonBlue,),
-                Icon(IconGeneral.star,size: SizesGeneral.size10,color: ColorGeneral.buttonBlue,),
-                Icon(IconGeneral.star,size: SizesGeneral.size10,color: ColorGeneral.iconGrey),
-                Icon(IconGeneral.star,size: SizesGeneral.size10,color: ColorGeneral.iconGrey)
+                Icon(IconGeneral.star,size: SizesGeneral.size10,color:stars>=1? ColorGeneral.buttonBlue:ColorGeneral.iconGrey,),
+                Icon(IconGeneral.star,size: SizesGeneral.size10,color:stars>=2 ? ColorGeneral.buttonBlue:ColorGeneral.iconGrey,),
+                Icon(IconGeneral.star,size: SizesGeneral.size10,color:stars>= 3? ColorGeneral.buttonBlue:ColorGeneral.iconGrey,),
+                Icon(IconGeneral.star,size: SizesGeneral.size10,color:stars>= 4? ColorGeneral.buttonBlue:ColorGeneral.iconGrey),
+                Icon(IconGeneral.star,size: SizesGeneral.size10,color:stars>= 5? ColorGeneral.buttonBlue:ColorGeneral.iconGrey)
               ],
             ),
             text(txt: StringsGeneral.seemore,clr: ColorGeneral.pink,size: SizesGeneral.size10)

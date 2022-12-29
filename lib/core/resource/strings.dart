@@ -81,7 +81,7 @@ class StringsGeneral{
   static const String willieImg ='assets/images/willie.png';
   static const String doriImg ='assets/images/dori.png';
 
-
+  static const String patientsCollection="patients";
 
 
 

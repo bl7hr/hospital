@@ -7,7 +7,9 @@ import '../../../service_provider/service_provider_fillter/service_provider_fill
 import '../../../widgets/appbar_icon.dart';
 import '../../../widgets/button.dart';
 import '../../../widgets/checkbox.dart';
+import '../../../widgets/chip.dart';
 import '../../../widgets/text.dart';
+import '../../../widgets/text_fild.dart';
 import '../../patients/presentation/screens/patients.dart';
 import '../components/firstsearch.dart';
 import '../components/secondsearch.dart';
@@ -21,6 +23,12 @@ class PatientFillter extends StatefulWidget {
 @override
 
 class _serviceProviderFillterState extends State<PatientFillter> {
+  bool homeChecked=false;
+  bool onlineChecked=false;
+  bool centerChecked=false;
+  bool gaziantap=false;
+  bool adana=false;
+  bool any = false;
   @override
   Widget build(BuildContext context) {
 
@@ -41,13 +49,68 @@ class _serviceProviderFillterState extends State<PatientFillter> {
                       text(txt: StringsGeneral.pleaseDetermineYourCriteria,size: SizesGeneral.size14,clr: ColorGeneral.textGrey),
                       const SizedBox(height:SizesGeneral.size42,),
                       //first fillter search
-                      firstsearch((){setState(){
-                        a=!a;
-                        print(a);}
-                      },a==true?ColorGeneral.seacrhGrey:ColorGeneral.textGrey),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          text(txt: StringsGeneral.city),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              textFild(),
+                              SizedBox(height: SizesGeneral.size10,),
+                              Row(
+                                children: [
+                                  GestureDetector(
+                                    onTap:(){setState((){gaziantap=!gaziantap;adana=false;});},
+                                    child:  chip(
+                                        clr: gaziantap==true?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                        width: SizesGeneral.size100,
+                                        height: SizesGeneral.size40,
+                                        txt: StringsGeneral.gaziantep),
+                                  ),
+                                  SizedBox(width: SizesGeneral.size5,),
+                                  GestureDetector(
+                                    onTap:(){setState((){adana=!adana;gaziantap=false;});},
+                                    child: chip(
+                                        clr: adana==true?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                        width: SizesGeneral.size75,
+                                        height: SizesGeneral.size40,
+                                        txt: StringsGeneral.adana),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                       const SizedBox(height:SizesGeneral.size10,),
                       //second fillter search
-                     secondSearch(),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          text(txt: StringsGeneral.district),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //text box for search
+                              textFild(),
+                              SizedBox(height: SizesGeneral.size8,),
+                              GestureDetector(
+                                onTap: (){setState(() {
+                                  any=!any;
+                                });},
+                                child: chip(
+                                    clr: any==true?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                    width: SizesGeneral.size75,
+                                    height: SizesGeneral.size40,
+                                    txt: StringsGeneral.any),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                       const SizedBox(height:SizesGeneral.size28,),
                       //checlbox**********************************
                       Row(

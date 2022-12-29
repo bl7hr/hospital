@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:testfirebase/profile/service_provider/service_provider_fillter/service_provider_fillter.dart';
+import 'package:testfirebase/profile/service_provider/service_providers/presentation/controller/service_provider_cont.dart';
 import 'package:testfirebase/profile/widgets/chip.dart';
 import 'package:testfirebase/profile/widgets/list_service.dart';
 import 'package:testfirebase/profile/widgets/text.dart';
@@ -14,9 +16,16 @@ import '../../../../widgets/icon_filtter.dart';
 
 
 
-class ServiceProviders extends StatelessWidget {
+class ServiceProviders extends StatefulWidget {
   const ServiceProviders({Key? key}) : super(key: key);
 
+  @override
+  State<ServiceProviders> createState() => _ServiceProvidersState();
+}
+bool any=false;
+bool sport=false;
+bool orthop=false;
+class _ServiceProvidersState extends State<ServiceProviders> {
   @override
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width/390;
@@ -43,11 +52,20 @@ class ServiceProviders extends StatelessWidget {
         child: Row(
           children: [
             const SizedBox(width: SizesGeneral.size20,),
-            chip(txt: StringsGeneral.any,width: SizesGeneral.size80,onpress: (){},clr: ColorGeneral.seacrhGrey),
+            chip(txt: StringsGeneral.any,width: SizesGeneral.size80,onpress: (){setState(() {
+              any=!any;sport=false;
+              orthop=false;
+            });},clr:any==true? ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected),
             const SizedBox(width: SizesGeneral.size9,),
-            chip(txt: StringsGeneral.sports,),
+            chip(txt: StringsGeneral.sports,onpress: (){setState(() {
+               sport=!sport;any=false;
+                orthop=false;
+                });},clr: sport==true? ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected),
             const SizedBox(width: SizesGeneral.size9,),
-            chip(txt: StringsGeneral.orthopedics,),
+            chip(txt: StringsGeneral.orthopedics,onpress: (){setState(() {
+        orthop=!orthop;sport=false;
+        any=false;
+                   });},clr: orthop==true? ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected),
           ],
         ),
       ),
@@ -59,4 +77,3 @@ class ServiceProviders extends StatelessWidget {
     );
   }
 }
-

@@ -11,9 +11,17 @@ import '../../../../widgets/text_fild.dart';
 import '../../../patient_fillter/screens/patient_fillter.dart';
 
 
-class Patients extends StatelessWidget {
+class Patients extends StatefulWidget {
   const Patients({Key? key}) : super(key: key);
 
+  @override
+  State<Patients> createState() => _PatientsState();
+}
+
+class _PatientsState extends State<Patients> {
+  bool any=false;
+  bool sport=false;
+  bool orthop=false;
   @override
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width/390;
@@ -36,19 +44,28 @@ class Patients extends StatelessWidget {
               ],
               ),
               const SizedBox(height: SizesGeneral.size8,),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    const SizedBox(width: SizesGeneral.size20,),
-                    chip(txt: StringsGeneral.any,width: SizesGeneral.size80,clr:ColorGeneral.seacrhGrey),
-                    const SizedBox(width: SizesGeneral.size9,),
-                    chip(txt: StringsGeneral.sports,),
-                    const SizedBox(width: SizesGeneral.size9,),
-                    chip(txt: StringsGeneral.orthopedics,),
-                  ],
-                ),
-              ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            const SizedBox(width: SizesGeneral.size20,),
+            chip(txt: StringsGeneral.any,width: SizesGeneral.size80,onpress: (){setState(() {
+              any=!any;sport=false;
+              orthop=false;
+            });},clr:any==true? ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected),
+            const SizedBox(width: SizesGeneral.size9,),
+            chip(txt: StringsGeneral.sports,onpress: (){setState(() {
+              sport=!sport;any=false;
+              orthop=false;
+            });},clr: sport==true? ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected),
+            const SizedBox(width: SizesGeneral.size9,),
+            chip(txt: StringsGeneral.orthopedics,onpress: (){setState(() {
+              orthop=!orthop;sport=false;
+              any=false;
+            });},clr: orthop==true? ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected),
+          ],
+        ),
+      ),
               const SizedBox(height: SizesGeneral.size37,),
               listViewPatient(),
             ]
@@ -56,5 +73,4 @@ class Patients extends StatelessWidget {
     )
     );
   }
-
 }

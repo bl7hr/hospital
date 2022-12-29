@@ -29,6 +29,7 @@ class SizesGeneral {
   static const double size30 = 30;
   static const double size32 = 32;
   static const double size34 = 34;
+  static const double size62_5 = 62.5;
   static const double size37 = 37;
   static const double size40 = 40;
   static const double size42 = 42;
