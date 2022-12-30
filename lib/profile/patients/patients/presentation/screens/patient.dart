@@ -5,13 +5,9 @@ import 'package:testfirebase/profile/patients/patients/presentation/controller/p
 import 'package:testfirebase/profile/widgets/button.dart';
 import '../../../../../../../../core/resource/colors.dart';
 import '../../../../../../../../core/resource/fonts.dart';
-import '../../../../../../../../core/resource/icons.dart';
 import '../../../../../../../../core/resource/sizes.dart';
 import '../../../../../../../../core/resource/strings.dart';
-import '../components/patient/container_profile.dart';
 import '../../../../widgets/appbar_icon.dart';
-import '../../../../widgets/blue_icon.dart';
-import '../../../../widgets/chip.dart';
 import '../../../../widgets/review.dart';
 import '../../../../widgets/sub_titles_profile.dart';
 import '../../../../widgets/text.dart';

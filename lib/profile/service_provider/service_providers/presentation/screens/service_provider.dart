@@ -12,6 +12,7 @@ import '../../../../widgets/blue_icon.dart';
 import '../../../../widgets/button.dart';
 import '../../../../widgets/chip.dart';
 import '../../../../widgets/list_review.dart';
+import '../../../../widgets/list_service.dart';
 import '../../../../widgets/review.dart';
 import '../../../../widgets/sub_titles_profile.dart';
 import '../../../../widgets/text.dart';
@@ -115,6 +116,7 @@ class ServiceProvider extends StatelessWidget {
                   Center(child: defultButton(press:(){print(reveiws);},width:SizesGeneral.size350*0.92,txt: StringsGeneral.makeAppointment))
                   ,subTitlesProfile(StringsGeneral.reviews),
                   ///list of review
+
                   reveiw(StringsGeneral.tonyDanza,StringsGeneral.date,StringsGeneral.secondReview,StringsGeneral.secomdimgReview,getsize().width),
                   reveiw(StringsGeneral.nameSurname,StringsGeneral.date,StringsGeneral.secondReview,StringsGeneral.firstimgReview,getsize().width)
                 ],
@@ -125,5 +127,4 @@ class ServiceProvider extends StatelessWidget {
       ),
     ));
   }
-
 }

@@ -42,6 +42,7 @@ class ServiceProvider extends Equatable{
     online,
     image,subcountry,session,documantation,lang,specialties,discription,patients];
 }
+/*
 class ReviewServiceProvider{
   final String name;
   final String image;
@@ -49,4 +50,4 @@ class ReviewServiceProvider{
   final String review;
   ReviewServiceProvider( this.name,this.image,this.date,this.review);
 
-}
+}*/

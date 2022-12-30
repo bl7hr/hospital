@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import '../../data/models/patient_model.dart';
 
 class Patientprovider with ChangeNotifier{
+  List<bool> c=[true];
+  void m(bool x){
+    x=!x;
+    c.add(x);
+    notifyListeners();
+  }
   List<PatientModel> _myNotes=[];
   List<PatientModel> get getMyNotes{
     return _myNotes;

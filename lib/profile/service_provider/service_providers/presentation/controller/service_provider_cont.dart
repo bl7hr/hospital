@@ -7,16 +7,15 @@ import '../../data/models/service_provider_model.dart';
 
 
 class ServiceProvidersProvider with ChangeNotifier{
- List< bool> list=[false,false,false];
+/*List<ReviewsModel> _list=[];
+List<ReviewsModel> get getReview{
+  return _list;
+}*/
   List<ServiceProviderModel> _myNotes=[];
   List<ServiceProviderModel> get getMyNotes{
     return _myNotes;
   }
-  void chip(bool a,bool b,bool c){
-    list[0]=a;
-    list[1]=b;
-    list[2]=c; notifyListeners();
-  }
+
   void addMyNote(
   String name ,
   String country,

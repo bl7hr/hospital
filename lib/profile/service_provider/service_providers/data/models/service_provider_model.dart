@@ -48,4 +48,29 @@ class ServiceProviderModel extends ServiceProvider{
 
     ;
   }
-}
+}/*
+class ReviewsModel extends ReviewServiceProvider{
+
+  ReviewsModel(super.name,super.image,super.date,super.review);
+  factory ReviewsModel .fromJson(Map<String,dynamic> json)=>
+      ReviewsModel(
+        json['name'],
+        json['image'],
+        json['date'],
+        json['review'],
+      );
+  Map<String,dynamic> toMap(){
+    return {
+      'name':this.name,
+      'image':this.image,
+
+      'date':this.date,
+      'review': this.review
+    }as Map<String,dynamic> ;
+  }
+  factory ReviewsModel.fromMap(Map<String, dynamic> map) {
+    return ReviewsModel(map['name'],map[ 'image'], map['date'], map['review'],)
+
+    ;
+  }
+}*/

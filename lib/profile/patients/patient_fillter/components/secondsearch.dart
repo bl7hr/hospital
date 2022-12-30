@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:testfirebase/core/resource/colors.dart';
+import 'package:testfirebase/profile/patients/patients/presentation/controller/patientprovider.dart';
 import '../../../../../../../core/resource/sizes.dart';
 import '../../../../../../../core/resource/strings.dart';
 import '../../../widgets/chip.dart';

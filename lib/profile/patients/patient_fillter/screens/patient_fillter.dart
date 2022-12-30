@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../../../../../core/resource/colors.dart';
 import '../../../../../../../core/resource/fonts.dart';
 import '../../../../../../../core/resource/sizes.dart';
@@ -10,6 +11,7 @@ import '../../../widgets/checkbox.dart';
 import '../../../widgets/chip.dart';
 import '../../../widgets/text.dart';
 import '../../../widgets/text_fild.dart';
+import '../../patients/presentation/controller/patientprovider.dart';
 import '../../patients/presentation/screens/patients.dart';
 import '../components/firstsearch.dart';
 import '../components/secondsearch.dart';
@@ -29,6 +31,7 @@ class _serviceProviderFillterState extends State<PatientFillter> {
   bool gaziantap=false;
   bool adana=false;
   bool any = false;
+  bool x=false;
   @override
   Widget build(BuildContext context) {
 
@@ -97,6 +100,29 @@ class _serviceProviderFillterState extends State<PatientFillter> {
                               //text box for search
                               textFild(),
                               SizedBox(height: SizesGeneral.size8,),
+                              Consumer<Patientprovider>(
+                                builder: (BuildContext context, value, Widget? child) => chip(
+                             onpress: (){Provider.of<Patientprovider>(context,listen: false).m(value.c.first==true?value.c.first:!value.c.first);},
+                                    clr:value.c.last ==false?ColorGeneral.seacrhGrey:ColorGeneral.chipUnselected,
+                                    width: SizesGeneral.size75,
+                                    height: SizesGeneral.size40,
+                                    txt: StringsGeneral.any),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                     /* Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          text(txt: StringsGeneral.district),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //text box for search
+                              textFild(),
+                              SizedBox(height: SizesGeneral.size8,),
                               GestureDetector(
                                 onTap: (){setState(() {
                                   any=!any;
@@ -110,7 +136,7 @@ class _serviceProviderFillterState extends State<PatientFillter> {
                             ],
                           ),
                         ],
-                      ),
+                      ),*/
                       const SizedBox(height:SizesGeneral.size28,),
                       //checlbox**********************************
                       Row(
