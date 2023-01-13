@@ -1,3 +1,4 @@
+/*
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,7 +7,6 @@ import '../../../../../../core/resource/colors.dart';
 import '../../../../../../core/resource/icons.dart';
 import '../../../../../../core/resource/sizes.dart';
 import '../../../../../widgets/text.dart';
-import '../../controller/patientprovider.dart';
 
 Widget firstRowPatient()=>Row(
   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -44,4 +44,4 @@ Widget firstRowPatient()=>Row(
       ],
     )
   ],
-);
+);*/

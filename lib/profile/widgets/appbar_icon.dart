@@ -7,8 +7,6 @@ import '../../../../core/resource/sizes.dart';
 import '../../../../core/resource/strings.dart';
 
 
-
-
 Widget appbarIcon(var onPress){
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -26,5 +24,4 @@ Widget appbarIcon(var onPress){
 
 
 
-//button************************************button
 

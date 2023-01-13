@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../../../core/resource/sizes.dart';
 import '../../../../../../core/resource/strings.dart';
-import '../../controller/patientprovider.dart';
 import 'container_profile.dart';
+/*
 
 Widget infoPatient()=>SingleChildScrollView(
   scrollDirection: Axis.horizontal,
@@ -26,4 +26,4 @@ Widget infoPatient()=>SingleChildScrollView(
           } ),
     ],
   ),
-);
+);*/

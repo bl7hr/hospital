@@ -1,18 +1,18 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../../../core/resource/sizes.dart';
-import '../../../../../../core/resource/strings.dart';
-import '../../../../../widgets/list_service.dart';
-import 'container_profile.dart';
-import '../../controller/service_provider_cont.dart';
-class InfoComponent extends ConsumerWidget {
-  const InfoComponent({Key? key}) : super(key: key);
+import '../../../../../core/resource/sizes.dart';
+import '../../../../../core/resource/strings.dart';
+import '../../../../service_provider/service_providers/presentation/components/service_provider/container_profile.dart';
+import '../../../../widgets/listofPatient.dart';
+
+class InfoComponentP extends ConsumerWidget {
+  const InfoComponentP({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
-    final a = ref.watch(selectedUserProv);
+    final a = ref.watch(selectedPatientProv);
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -20,18 +20,13 @@ class InfoComponent extends ConsumerWidget {
           const SizedBox(width: SizesGeneral.size20,),
             containerProfileService(
                     StringsGeneral.price,
-                    '${a?.price}'),
+                    '${a?.individualSession}'),
 
           const SizedBox(width: SizesGeneral.size17,),
             containerProfileService(
                     StringsGeneral.patients,
-                    '+${a?.patients}')
-              ,
-          const SizedBox(width: SizesGeneral.size17,),
-           containerProfileService(
-                    StringsGeneral.session,
                     '${a?.session}')
-
+              ,
         ],
       ),
     );

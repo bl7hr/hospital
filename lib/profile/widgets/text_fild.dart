@@ -12,11 +12,14 @@ Widget textFild({
   double height=SizesGeneral.size40,
   double width=SizesGeneral.size218,
   var controller,
+  var onChange
 }){
   return SizedBox(
     height: height,
     width: width,
+
     child: TextField(
+      onChanged: onChange,
       controller: controller,
       decoration: InputDecoration(
         fillColor: ColorGeneral.seacrhGrey,

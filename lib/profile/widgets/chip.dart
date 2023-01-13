@@ -18,7 +18,6 @@ Widget chip({
 })=>Container(
   height: height,
   width: width,
-
   decoration: BoxDecoration(borderRadius: BorderRadius.circular(SizesGeneral.size50),color: clr,
       border: Border.all(color: ColorGeneral.black)
   ),

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../../../../../../core/resource/icons.dart';
 import '../../../../../../core/resource/sizes.dart';
 import '../../../../../widgets/blue_icon.dart';
-import '../../controller/patientprovider.dart';
+/*
 
 Widget iconsRowPateint()=>Consumer<Patientprovider>(builder:  (BuildContext context, ref, Widget? child)
 {
@@ -19,4 +19,4 @@ SizedBox(width: SizesGeneral.size20,),
 ref.getMyNotes.last.online==true? blueIcon(IconGeneral.blueAction):SizedBox(),
 ],
 );
-});
+});*/
